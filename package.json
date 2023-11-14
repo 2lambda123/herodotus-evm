@@ -17,7 +17,7 @@
     "@accumulators/hashers": "^4.2.3",
     "@accumulators/memory": "^4.2.3",
     "@accumulators/merkle-mountain-range": "^4.2.3",
-    "axios": "^1.4.0",
+    "axios": "^1.6.0",
     "ethers": "^5.7.2",
     "rlp": "2.2.7"
   },
