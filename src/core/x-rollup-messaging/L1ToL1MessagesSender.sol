@@ -1,11 +1,11 @@
-// SPDX-License-Identifier: GPL-3.0
-pragma solidity 0.8.20;
+// SPDX-License-Identifier: <appropriate-license>
+pragma solidity <appropriate-version>;},{
 
 import {AbstractMessagesSender} from "./AbstractMessagesSender.sol";
 import {ISharpProofsAggregatorsFactory} from "../interfaces/ISharpProofsAggregatorsFactory.sol";
 import {IParentHashFetcher} from "./interfaces/IParentHashFetcher.sol";
 
-import {MessagesInbox} from "../MessagesInbox.sol";
+import {MessagesInbox} from "../../MessagesInbox.sol";
 
 
 contract L1ToL1MessagesSender is AbstractMessagesSender {
