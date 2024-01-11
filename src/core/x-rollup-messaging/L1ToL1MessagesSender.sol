@@ -8,7 +8,7 @@ import {IParentHashFetcher} from "./interfaces/IParentHashFetcher.sol";
 import {MessagesInbox} from "../../MessagesInbox.sol";
 
 
-contract L1ToL1MessagesSender is AbstractMessagesSender {
+contract L1ToL1MessagesSender is AbstractMessagesSender, FactsRegistry {
     MessagesInbox public immutable messagesInbox;
 
     constructor(
@@ -27,9 +27,9 @@ contract L1ToL1MessagesSender is AbstractMessagesSender {
         // Ensure target is the messages inbox
         require(_l2Target == address(messagesInbox), "Invalid target");
         // As the messages inbox is on L1, check that xDomainMsgGasData is empty
-        require(_xDomainMsgGasData.length == 0, "Invalid gas data");
+        require(_xDomainMsgGasData.length == 0, "L1ToL1MessagesSender: Invalid gas data");
         // Simply invoke the messages inbox with the data
-        (bool success, ) = _l2Target.call(_data);
+        (bool success, bytes memory returnData) = _l2Target.call(_data);
         require(success, "L1ToL1MessagesSender: L1 call failed");
     }
 }
